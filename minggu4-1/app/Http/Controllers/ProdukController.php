@@ -4,6 +4,14 @@ use Illuminate\Http\Request;
 class ProdukController extends Controller
 {
  // Menampilkan daftar produk
+public function getkategori()
+ {
+    return [
+        ['id' => 1, 'nama' => 'Elektronik'],
+        ['id' => 2, 'nama' => 'Pakaian'],
+        ['id' => 3, 'nama' => 'Makanan'],
+    ];
+ }
 public function getDaftarProduk()
  {
     return [
@@ -14,7 +22,7 @@ public function getDaftarProduk()
  }
  public function index()
  {
- $kategori = "Elektronik";
+ $kategori = $this->getkategori()[1];
  $daftarProduk = $this->getDaftarProduk();
  return view('index', compact('kategori', 'daftarProduk'));
  }

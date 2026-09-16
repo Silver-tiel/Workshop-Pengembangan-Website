@@ -5,7 +5,7 @@
  <title>Laporan Produk</title>
 </head>
 <body>
-    <h1>Laporan Penjualan - {{ $kategori }}</h1>
+    <h1>Laporan Penjualan - {{ $kategori['nama'] }}</h1>
     <table border="1">
         <thead>
             <tr>

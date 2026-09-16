@@ -11,8 +11,8 @@ class LaporanPenjualanController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $kategori = "Elektronik";
         $produkController = new ProdukController();
+        $kategori = $produkController->getkategori()[1];
         $daftarProduk = $produkController->getDaftarProduk();
         $dataLaporan =[
             ['nama' => $daftarProduk[0]['nama'], 'terjual' => 15, 'tersisa' => 5],

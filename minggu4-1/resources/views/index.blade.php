@@ -5,7 +5,7 @@
  <title>Daftar Produk</title>
 </head>
 <body>
- <h1>Katalog Produk: {{ $kategori }}</h1>
+ <h1>Katalog Produk: {{ $kategori['nama'] }}</h1>
  <table border="1" cellpadding="8" cellspacing="0">
  <thead>
  <tr>
