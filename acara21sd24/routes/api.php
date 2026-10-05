@@ -1,0 +1,15 @@
+<?php
+
+use App\Http\Controllers\Api\TokenAuthController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
+Route::post('/login', [TokenAuthController::class, 'store']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::post('/logout', [TokenAuthController::class, 'destroy']);
+});

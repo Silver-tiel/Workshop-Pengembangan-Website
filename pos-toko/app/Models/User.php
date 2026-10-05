@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Models;
-
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes;
+    use HasApiTokens, Notifiable, SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -18,6 +18,11 @@ class User extends Authenticatable
         'role',
         'age',
         'points',
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
     ];
 
     public function setPasswordAttribute($value)

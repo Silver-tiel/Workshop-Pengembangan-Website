@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('role')->default('user');
             $table->integer('age')->nullable();
             $table->integer('points')->default(0);
-            $table->softDeletes();
         });
     }
 
@@ -26,7 +25,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropSoftDeletes();
             $table->dropColumn(['status', 'role', 'age', 'points']);
         });
     }
